@@ -1,5 +1,6 @@
 # ESD-Extract
 At present there is no sure way of determining the ESD tolerance of a chip. Some guess work is used and overkill. Existing tools do provide assistance in applying good practice methods for ESD tolerance but still weaknesses can get by them. 
+
 Spice simulation can be applied for more accurate determination of ESD tolerance and the location of weak areas of a circuit but historically this has not been done due to the following reasons:
 
 #####1. Net list extraction problem. The simulation of the ESD discharge path along with protected devices should result in a very manageable simulation file. General net list extraction tools create unwieldy simulation files with unnecessary circuits being included. Furthermore, there no provisions to determine what voltages cause device failure.
