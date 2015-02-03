@@ -1,0 +1,83 @@
+Diode:
+ndio105ll Regular-VT N+ to P-well junction diode for core
+ndio105lllvt Ultra-Low-VT N+ to P-well junction diode for core
+pdio105ll Regular-VT P+ to N-well junction diode for core
+pdio105lllvt Ultra-Low-VT P+ to N-well junction diode for core
+ndio18ll N+ to P-well junction diode for IO1
+pdio18ll P+ to N-well junction diode for IO1
+ntdio105ll Native N+ to P-sub junction diode for core
+ntdio18ll Native N+ to P-sub junction diode for IO1
+nwdioll N-well to P-well junction diode for core
+parasitic_nwdioll Parasitcal N-well to P-well junction diode for PMOS
+
+Capacitor:
+mom_2t_ckt MOM metal capacitor with 2 terminals
+mom_3t_ckt MOM metal capacitor with 3 terminals
+mom_ms_3t_ckt MOM metal capacitor with metal shielding
+mom_ps_3t_ckt MOM metal capacitor with poly shielding
+mom_4t_ckt Mismatch structure MOM metal capacitor with 4 terminals
+mom_5t_ckt Mismatch structure MOM metal capacitor with 5 terminals
+mom_ms_5t_ckt Mismatch structure MOM metal capacitor with metal shielding
+mom_ps_5t_ckt Mismatch structure MOM metal capacitor with poly shielding
+
+Resistor:
+rnwsti_3t_ckt Nwell resistor under STI with 3 terminals
+rnwsti_2t_ckt Nwell resistor under STI with 2 terminals
+rnwaa_3t_ckt Nwell resistor under Diffusion with 3 terminals
+rnwaa_2t_ckt Nwell resistor under Diffusion with 2 terminals
+rndifsab_3t_ckt N+ Diffusion non-slicided resistor with 3 terminals
+rndifsab_2t_ckt N+ Diffusion non-slicided resistor with 2 terminals
+rpdifsab_3t_ckt P+ Diffusion non-slicided resistor with 3 terminals
+rpdifsab_2t_ckt P+ Diffusion non-slicided resistor with 2 terminals
+rnpo_3t_ckt N+ Poly resistor with 3 terminals
+rnpo_2t_ckt N+ Poly resistor with 2 terminals
+rppo_3t_ckt P+ Poly resistor with 3 terminals
+rppo_2t_ckt P+ Poly resistor with 2 terminals
+rpdif_3t_ckt N+ Diffusion slicided resistor with 3 terminals
+rpdif_2t_ckt N+ Diffusion slicided resistor with 2 terminals
+rpdif_3t_ckt P+ Diffusion slicided resistor with 3 terminals
+rpdif_2t_ckt P+ Diffusion slicided resistor with 2 terminals
+rm1_2t_ckt Metal1 resistor with 2 terminals
+rm2_2t_ckt Metal2 resistor with 2 terminals
+rm3_2t_ckt Metal3 resistor with 2 terminals
+rm4_2t_ckt Metal4 resistor with 2 terminals
+rm5_2t_ckt Metal5 resistor with 2 terminals
+rm6_2t_ckt Metal6 resistor with 2 terminals
+rm7_2t_ckt Metal7 resistor with 2 terminals
+rm8_2t_ckt Metal8 resistor with 2 terminals
+rtm2_2t_ckt Top Metal2 resistor with 2 terminals
+ralpa_2t_ckt ALPA resistor with 2 terminals
+rm1_3t_ckt Metal1 resistor with 3 terminals
+rm2_3t_ckt Metal2 resistor with 3 terminals
+rm3_3t_ckt Metal3 resistor with 3 terminals
+rm4_3t_ckt Metal4 resistor with 3 terminals
+rm5_3t_ckt Metal5 resistor with 3 terminals
+rm6_3t_ckt Metal6 resistor with 3 terminals
+rm7_3t_ckt Metal7 resistor with 3 terminals
+rm8_3t_ckt Metal8 resistor with 3 terminals
+rtm2_3t_ckt Top Metal2 resistor with 3 terminals
+rtm1_3t_ckt Top Metal1 resistor with 3 terminals
+ralpa_3t_ckt ALPA resistor with 3 terminals
+
+PMOS:
+p105ll_ckt
+plvt105ll_ckt
+p18ll_ckt IO1
+
+NMOS:
+n105ll_ckt
+nlvt105ll_ckt
+n18ll_ckt
+nt18ll_ckt
+
+BJT:
+pnp105a100ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 10*10 um^2 for core
+pnp105a25ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 5*5 um^2 for core
+pnp105a4ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 2*2 um^2 for core
+pnp105a2d56ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 1.6*1.6 um^2 for core
+pnp18a100ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 10*10 um^2 for IO1
+pnp18a25ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 5*5 um^2 for IO1
+pnp18a4ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 2*2 um^2 for IO1
+pnp18a2d56ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 1.6*1.6 um^2 for IO1
+
+
