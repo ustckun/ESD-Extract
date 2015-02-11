@@ -4,18 +4,18 @@
 /// Copyright (c) 2015, Chenkun Wang, UCR\n
 /// All rights reserved.
 ///
-/// \file device_list.h
+/// \file netlist_info.h
 /// \brief Define the class define.
 /// \version 1.0
 /// \author Chenkun Wang
-/// \date 02/02/2015
+/// \date 02/10/2015
 ////////////////////////////////////////////////////////////////////////////////
 ///
 ///		
 ///
 ////////////////////////////////////////////////////////////////////////////////
-#ifndef __ESDCAT__device_classify__
-#define __ESDCAT__device_classify__
+#ifndef __ESDCAT__Device_details_extract__
+#define __ESDCAT__Device_details_extract__
 
 #include <iostream>
 #include <fstream>
@@ -27,25 +27,18 @@
 #include <cstring>
 
 #include"define.h"
+#include"device_list.h"
 
 using namespace std;
 
-class device_classify
+class Device_details_extract
 {
 public:
-	device_classify();
-	vector<string> nmos_list;
-	vector<string> pmos_list;
-	vector<string> diode_list;
-	vector<string> capacitor_list;
-	vector<string> resistor_list;
-	vector<string> pnpbjt_list;
-	vector<string> npnbjt_list;
-	string device_file_dir;
-	void ReadDeviceList(string file_directory);
+	multimap<string, string> device_detail;
+	void DeviceExtract(string netlist_address,device_classify device_list);
 
 private:
-
+	string unknow_line;
 };
 
 #endif

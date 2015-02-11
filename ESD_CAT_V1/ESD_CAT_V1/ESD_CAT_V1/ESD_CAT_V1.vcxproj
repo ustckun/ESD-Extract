@@ -44,6 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)_CRT_SECURE_NO_DEPRECATE</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -66,10 +67,12 @@
   <ItemGroup>
     <ClInclude Include="define.h" />
     <ClInclude Include="device_list.h" />
+    <ClInclude Include="netlist_info.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="device_list.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="netlist_info.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

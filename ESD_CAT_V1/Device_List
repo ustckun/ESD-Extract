@@ -70,7 +70,7 @@ nlvt105ll_ckt
 n18ll_ckt
 nt18ll_ckt
 
-BJT:
+PNPBJT:
 pnp105a100ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 10*10 um^2 for core
 pnp105a25ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 5*5 um^2 for core
 pnp105a4ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 2*2 um^2 for core
@@ -80,4 +80,6 @@ pnp18a25ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 5*5 um^2 for IO1
 pnp18a4ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 2*2 um^2 for IO1
 pnp18a2d56ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 1.6*1.6 um^2 for IO1
 
+NPNBJT:
+npn18a2d56ll_ckt P+/N-well/Psub(PNP) BJT with Emitter Area 1.6*1.6 um^2 for IO1
 

@@ -4,7 +4,7 @@
 /// Copyright (c) 2015, Chenkun Wang, UCR\n
 /// All rights reserved.
 ///
-/// \file define.h
+/// \file device_list.cpp
 /// \brief Define the class define.
 /// \version 1.0
 /// \author Chenkun Wang
@@ -20,7 +20,7 @@
 
 device_classify::device_classify()
 {
-	device_file_dir = "G:\ESD Project\ESD_CAT_V1\Device_List";
+	device_file_dir = "G:\\ESD Project\\ESD_CAT_V1\\Device_List";
 }
 
 void device_classify::ReadDeviceList(string file_directory)
@@ -167,7 +167,7 @@ void device_classify::ReadDeviceList(string file_directory)
 	}
 	temp_string[n] = '\0';
 	device_name = temp_string;
-	if (device_name == "BJT")
+	if (device_name == "PNPBJT")
 	{
 		getline(device_data, temp_line);
 		getline(device_data, temp_line);
@@ -178,7 +178,32 @@ void device_classify::ReadDeviceList(string file_directory)
 				temp_instance[i] = temp_line[i];
 			}
 			temp_instance[i] = '\0';
-			bjt_list.push_back(temp_instance);
+			pnpbjt_list.push_back(temp_instance);
+			getline(device_data, temp_line);
+		}
+	}
+	n = 0;
+	device_data.get(ch);
+	while (ch != ':')
+	{
+		temp_string[n] = ch;
+		n++;
+		device_data.get(ch);
+	}
+	temp_string[n] = '\0';
+	device_name = temp_string;
+	if (device_name == "NPNBJT")
+	{
+		getline(device_data, temp_line);
+		getline(device_data, temp_line);
+		while (temp_line != "\0")
+		{
+			for (i = 0; temp_line[i] != ' '&&temp_line[i] != '\0'; i++)
+			{
+				temp_instance[i] = temp_line[i];
+			}
+			temp_instance[i] = '\0';
+			npnbjt_list.push_back(temp_instance);
 			getline(device_data, temp_line);
 		}
 	}
