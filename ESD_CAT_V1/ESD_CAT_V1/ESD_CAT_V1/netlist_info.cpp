@@ -24,6 +24,8 @@ void Device_details_extract::DeviceExtract(string netlist_address, device_classi
 	string temp_line;
 	char subckt_name_ctr[40];
 	char device_type;
+	char *details;
+	int n;
 	string final_line;
 	string subckt_name;
 	getline(netlist_data, temp_line);
@@ -70,7 +72,6 @@ void Device_details_extract::DeviceExtract(string netlist_address, device_classi
 			getline(netlist_data, temp_line);
 			char *ready_to_seperate = new char[temp_line.length() + 1];
 			strcpy(ready_to_seperate, temp_line.c_str());
-			char *details;
 			details = strtok(ready_to_seperate, " ");
 			string diode_pins, diode_pin1, diode_pin2;
 			details = strtok(NULL, " ");
@@ -79,27 +80,114 @@ void Device_details_extract::DeviceExtract(string netlist_address, device_classi
 			diode_pin2 = details;
 			diode_pins = diode_pin1 +' '+ diode_pin2;
 			final_line = 'D'+temp_line + " D_" + subckt_name;
-			Device_details_extract::device_detail.insert(make_pair(diode_pins, final_line));
+			Device_details_extract::device_detail_d.insert(make_pair(diode_pins, final_line));
+			delete ready_to_seperate;
 		}
 		if (device_type == 'C')
 		{
-
+			getline(netlist_data, temp_line);
+			char *ready_to_seperate = new char[temp_line.length() + 1];
+			strcpy(ready_to_seperate, temp_line.c_str());
+			details = strtok(ready_to_seperate, " ");
+			string c_pins, c_pin1, c_pin2;
+			details = strtok(NULL, " ");
+			c_pin1 = details;
+			details = strtok(NULL, " ");
+			c_pin2 = details;
+			c_pins = c_pin1 + ' ' + c_pin2;
+			final_line = 'C' + temp_line + " C_" + subckt_name;
+			Device_details_extract::device_detail_c.insert(make_pair(c_pins, final_line));
+			delete ready_to_seperate;
 		}
 		if (device_type == 'R')
 		{
-
+			getline(netlist_data, temp_line);
+			char *ready_to_seperate = new char[temp_line.length() + 1];
+			strcpy(ready_to_seperate, temp_line.c_str());
+			details = strtok(ready_to_seperate, " ");
+			string r_pins, r_pin1, r_pin2;
+			details = strtok(NULL, " ");
+			r_pin1 = details;
+			details = strtok(NULL, " ");
+			r_pin2 = details;
+			r_pins = r_pin1 + ' ' + r_pin2;
+			final_line = 'R' + temp_line + " R_" + subckt_name;
+			Device_details_extract::device_detail_r.insert(make_pair(r_pins, final_line));
+			delete ready_to_seperate;
 		}
 		if (device_type == 'M')
 		{
-
+			getline(netlist_data, temp_line);
+			char * ready_to_seperate = new char[temp_line.length() + 1];
+			strcpy(ready_to_seperate, temp_line.c_str());
+			details = strtok(ready_to_seperate, " ");
+			string m_pins, m_pin1, m_pin2, m_pin3, m_pin4;
+			details = strtok(NULL, " ");
+			m_pin1 = details;
+			details = strtok(NULL, " ");
+			m_pin2 = details;
+			details = strtok(NULL, " ");
+			m_pin3 = details;
+			details = strtok(NULL, " ");
+			m_pin4 = details;
+			m_pins = m_pin1 + ' ' + m_pin2 + ' ' + m_pin3 + ' ' + m_pin4;
+			details = strtok(NULL, " ");
+			string temp_name = details;
+			for (n = 0; n<device_list.nmos_list.size(); n++)
+			{
+				if (device_list.nmos_list[n] == temp_name)
+					n = device_list.nmos_list.size()+1;
+			}
+			if (n == device_list.nmos_list.size()+2)
+			{
+				final_line = "M" + temp_line + " NM_" + subckt_name;
+				Device_details_extract::device_detail_nm.insert(make_pair(m_pins, final_line));
+				delete ready_to_seperate;
+			}
+			else
+			{
+				final_line = "M" + temp_line + " PM_" + subckt_name;
+				Device_details_extract::device_detail_pm.insert(make_pair(m_pins, final_line));
+				delete ready_to_seperate;
+			}
 		}
 		if (device_type == 'Q')
 		{
-
+			getline(netlist_data, temp_line);
+			char * ready_to_seperate = new char[temp_line.length() + 1];
+			strcpy(ready_to_seperate, temp_line.c_str());
+			details = strtok(ready_to_seperate, " ");
+			string m_pins, m_pin1, m_pin2, m_pin3;
+			details = strtok(NULL, " ");
+			m_pin1 = details;
+			details = strtok(NULL, " ");
+			m_pin2 = details;
+			details = strtok(NULL, " ");
+			m_pin3 = details;
+			m_pins = m_pin1 + ' ' + m_pin2 + ' ' + m_pin3;
+			details = strtok(NULL, " ");
+			string temp_name = details;
+			for (n = 0; n<device_list.npnbjt_list.size(); n++)
+			{
+				if (device_list.npnbjt_list[n] == temp_name)
+					n = device_list.npnbjt_list.size() + 1;
+			}
+			if (n == device_list.npnbjt_list.size() + 2)
+			{
+				final_line = "Q" + temp_line + " NPNBJT_" + subckt_name;
+				Device_details_extract::device_detail_nq.insert(make_pair(m_pins, final_line));
+				delete ready_to_seperate;
+			}
+			else
+			{
+				final_line = "Q" + temp_line + " PNPBJT_" + subckt_name;
+				Device_details_extract::device_detail_pq.insert(make_pair(m_pins, final_line));
+				delete ready_to_seperate;
+			}
 		}
 		if (device_type == 'X')
 		{
-
+			getline(netlist_data, temp_line);
 		}
 	}
 }

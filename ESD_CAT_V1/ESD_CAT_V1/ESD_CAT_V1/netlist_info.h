@@ -34,7 +34,14 @@ using namespace std;
 class Device_details_extract
 {
 public:
-	multimap<string, string> device_detail;
+	multimap<string, string> device_detail_d;
+	multimap<string, string> device_detail_c;
+	multimap<string, string> device_detail_r;
+	multimap<string, string> device_detail_nm;
+	multimap<string, string> device_detail_pm;
+	multimap<string, string> device_detail_pq;
+	multimap<string, string> device_detail_nq;
+	multimap<string, string> device_detail_x;
 	void DeviceExtract(string netlist_address,device_classify device_list);
 
 private:
