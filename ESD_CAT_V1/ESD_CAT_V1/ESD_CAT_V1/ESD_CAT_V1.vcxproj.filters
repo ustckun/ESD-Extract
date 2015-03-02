@@ -24,6 +24,9 @@
     <ClInclude Include="netlist_info.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sub_circuit_extraction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="device_list.cpp">
@@ -33,6 +36,9 @@
       <Filter>Resource Files</Filter>
     </ClCompile>
     <ClCompile Include="netlist_info.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sub_circuit_extraction.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
   </ItemGroup>

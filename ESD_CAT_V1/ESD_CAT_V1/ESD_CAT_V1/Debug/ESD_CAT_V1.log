@@ -1,17 +1,16 @@
-﻿Build started 2/16/2015 9:30:29 AM.
+﻿Build started 3/1/2015 11:21:37 PM.
      1>Project "G:\ESD Project\ESD_CAT_V1\ESD_CAT_V1\ESD_CAT_V1\ESD_CAT_V1.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         E:\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /D _MBCS /D _CRT_SECURE_NO_DEPRECATE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt netlist_info.cpp
-         netlist_info.cpp
-     1>g:\esd project\esd_cat_v1\esd_cat_v1\esd_cat_v1\netlist_info.cpp(136): warning C4018: '<' : signed/unsigned mismatch
-     1>g:\esd project\esd_cat_v1\esd_cat_v1\esd_cat_v1\netlist_info.cpp(170): warning C4018: '<' : signed/unsigned mismatch
+         E:\VS2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /D _MBCS /D _CRT_SECURE_NO_DEPRECATE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt sub_circuit_extraction.cpp
+         sub_circuit_extraction.cpp
        Link:
          E:\VS2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\ESD Project\ESD_CAT_V1\ESD_CAT_V1\Debug\ESD_CAT_V1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\ESD Project\ESD_CAT_V1\ESD_CAT_V1\Debug\ESD_CAT_V1.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\ESD Project\ESD_CAT_V1\ESD_CAT_V1\Debug\ESD_CAT_V1.lib" /MACHINE:X86 Debug\device_list.obj
          Debug\main.obj
          Debug\netlist_info.obj
+         Debug\sub_circuit_extraction.obj
          ESD_CAT_V1.vcxproj -> G:\ESD Project\ESD_CAT_V1\ESD_CAT_V1\Debug\ESD_CAT_V1.exe
      1>Done Building Project "G:\ESD Project\ESD_CAT_V1\ESD_CAT_V1\ESD_CAT_V1\ESD_CAT_V1.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.25
+Time Elapsed 00:00:00.58

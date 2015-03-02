@@ -68,11 +68,13 @@
     <ClInclude Include="define.h" />
     <ClInclude Include="device_list.h" />
     <ClInclude Include="netlist_info.h" />
+    <ClInclude Include="sub_circuit_extraction.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="device_list.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="netlist_info.cpp" />
+    <ClCompile Include="sub_circuit_extraction.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
