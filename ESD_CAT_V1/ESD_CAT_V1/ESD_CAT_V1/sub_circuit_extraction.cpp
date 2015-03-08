@@ -17,8 +17,9 @@
 
 #include "sub_circuit_extraction.h"
 
-string sub_ct_extr::ggnmos_extr(multimap<string, string> nmos_list)
+vector<string> sub_ct_extr::ggnmos_extr(multimap<string, string> nmos_list)
 {
+	vector<string> temp_ggnmos;
 	multimap<string, string>::iterator point = nmos_list.begin();
 	char *pins,*temp_pin;
 	string pin1, pin2, pin3, pin4;
@@ -37,16 +38,18 @@ string sub_ct_extr::ggnmos_extr(multimap<string, string> nmos_list)
 		pin4 = temp_pin;
 		if (pin1 == pin2)
 		{
-			ggnmos_result = ggnmos_result+ "\n\n" + (*point).second;
+			ggnmos_result = (*point).second;
+			temp_ggnmos.push_back(ggnmos_result);
 		}
 	}
-	return ggnmos_result;
-
+	ggnmos = temp_ggnmos;
+	return temp_ggnmos;
 }
 
 
-string sub_ct_extr::ggpmos_extr(multimap<string, string> pmos_list)
+vector<string> sub_ct_extr::ggpmos_extr(multimap<string, string> pmos_list)
 {
+	vector<string> temp_ggpmos;
 	multimap<string, string>::iterator point = pmos_list.begin();
 	char *pins, *temp_pin;
 	string pin1, pin2, pin3, pin4;
@@ -65,17 +68,18 @@ string sub_ct_extr::ggpmos_extr(multimap<string, string> pmos_list)
 		pin4 = temp_pin;
 		if (pin1 == pin2)
 		{
-			ggpmos_result = ggpmos_result + "\n\n" + (*point).second;
+			ggpmos_result = (*point).second;
+			temp_ggpmos.push_back(ggpmos_result);
 		}
 	}
-	return ggpmos_result;
-
+	ggpmos = temp_ggpmos;
+	return temp_ggpmos;
 }
 
 
-string sub_ct_extr::npnbjt_extr(multimap<string, string> npnbjt_list, multimap<string, string> res_list)
+vector<string> sub_ct_extr::npnbjt_extr(multimap<string, string> npnbjt_list, multimap<string, string> res_list)
 {
-
+	vector<string> temp_npnbjt;
 	multimap<string, string>::iterator point_bjt = npnbjt_list.begin();
 	char *pins, *temp_pin;
 	string pin1, pin2, pin3,pin11,pin12;
@@ -101,18 +105,19 @@ string sub_ct_extr::npnbjt_extr(multimap<string, string> npnbjt_list, multimap<s
 			pin12 = temp_pin;
 			if (pin11 == pin2&&pin12 == pin3)
 			{
-				npnbjt_result = npnbjt_result + "\n\n" + (*point_bjt).second + '\n' + (*point_res).second;
+				npnbjt_result = (*point_bjt).second + '\n' + (*point_res).second;
+				temp_npnbjt.push_back(npnbjt_result);
 			}
 		}
 	}
-	return npnbjt_result;
-
+	npnbjt = temp_npnbjt;
+	return temp_npnbjt;
 }
 
 
-string sub_ct_extr::pnpbjt_extr(multimap<string, string> pnpbjt_list, multimap<string, string> res_list)
+vector<string> sub_ct_extr::pnpbjt_extr(multimap<string, string> pnpbjt_list, multimap<string, string> res_list)
 {
-
+	vector<string> temp_pnpbjt;
 	multimap<string, string>::iterator point_bjt = pnpbjt_list.begin();
 	char *pins, *temp_pin;
 	string pin1, pin2, pin3, pin11, pin12;
@@ -138,18 +143,20 @@ string sub_ct_extr::pnpbjt_extr(multimap<string, string> pnpbjt_list, multimap<s
 			pin12 = temp_pin;
 			if (pin11 == pin1&&pin12 == pin2)
 			{
-				pnpbjt_result = pnpbjt_result + "\n\n" + (*point_bjt).second + '\n' + (*point_res).second;
+				pnpbjt_result = (*point_bjt).second + '\n' + (*point_res).second;
+				temp_pnpbjt.push_back(pnpbjt_result);
 			}
 		}
 	}
-	return pnpbjt_result;
-
+	pnpbjt = temp_pnpbjt;
+	return temp_pnpbjt;
 }
 
 
 
-string sub_ct_extr::gcnmos_extr(multimap<string, string> nmos_list, multimap<string, string> res_list, multimap<string, string> cap_list)
+vector<string> sub_ct_extr::gcnmos_extr(multimap<string, string> nmos_list, multimap<string, string> res_list, multimap<string, string> cap_list)
 {
+	vector<string> temp_gcnmos;
 	multimap<string, string>::iterator point_mos = nmos_list.begin();
 	char *pins, *temp_pin;
 	string pin1, pin2, pin3, pin4, pin11, pin12, pin21, pin22;
@@ -188,18 +195,21 @@ string sub_ct_extr::gcnmos_extr(multimap<string, string> nmos_list, multimap<str
 					pin22 = temp_pin;
 					if (pin21 == pin1&&pin22 == pin3)
 					{
-						gcnmos_result = gcnmos_result + "\n\n" + (*point_mos).second + '\n' + (*point_res).second + '\n' + (*point_cap).second;
+						gcnmos_result = (*point_mos).second + '\n' + (*point_res).second + '\n' + (*point_cap).second;
+						temp_gcnmos.push_back(gcnmos_result);
 					}
 				}
 			}
 		}
 	}
-	return gcnmos_result;
+	gcnmos = temp_gcnmos;
+	return temp_gcnmos;
 }
 
 
-string sub_ct_extr::gcpmos_extr(multimap<string, string> pmos_list, multimap<string, string> res_list, multimap<string, string> cap_list)
+vector<string> sub_ct_extr::gcpmos_extr(multimap<string, string> pmos_list, multimap<string, string> res_list, multimap<string, string> cap_list)
 {
+	vector<string> temp_gcpmos;
 	multimap<string, string>::iterator point_mos = pmos_list.begin();
 	char *pins, *temp_pin;
 	string pin1, pin2, pin3, pin4, pin11, pin12, pin21, pin22;
@@ -238,13 +248,141 @@ string sub_ct_extr::gcpmos_extr(multimap<string, string> pmos_list, multimap<str
 					pin22 = temp_pin;
 					if (pin21 == pin1&&pin22 == pin3)
 					{
-						gcpmos_result = gcpmos_result + "\n\n" + (*point_mos).second + '\n' + (*point_res).second + '\n' + (*point_cap).second;
+						gcpmos_result = (*point_mos).second + '\n' + (*point_res).second + '\n' + (*point_cap).second;
+						temp_gcpmos.push_back(gcpmos_result);
 					}
 				}
 			}
 		}
 	}
-	return gcpmos_result;
+	gcpmos = temp_gcpmos;
+	return temp_gcpmos;
+}
+
+void sub_ct_extr::Run_Extraction(Device_details_extract original_netlist)
+{
+	sub_ct_extr::ggnmos_extr(original_netlist.device_detail_nm);
+	sub_ct_extr::ggpmos_extr(original_netlist.device_detail_pm);
+	sub_ct_extr::npnbjt_extr(original_netlist.device_detail_nq, original_netlist.device_detail_r);
+	sub_ct_extr::pnpbjt_extr(original_netlist.device_detail_pq, original_netlist.device_detail_r);
+	sub_ct_extr::gcnmos_extr(original_netlist.device_detail_nm, original_netlist.device_detail_r, original_netlist.device_detail_c);
+	sub_ct_extr::gcpmos_extr(original_netlist.device_detail_pm, original_netlist.device_detail_r, original_netlist.device_detail_c);
+}
 
 
+void sub_ct_extr::Generate_ESD_netlist(string file_address)
+{
+	ofstream esd_netlist;
+	esd_netlist.open(file_address);
+	esd_netlist << "* SPICE NETLIST\n\n***************************************\n";
+	vector<string>::iterator it;
+	char *temp_line;
+	string temp_info;
+	string pin1, pin2, pin3, pin4;
+	int i = 0;
+	int n = 0;
+	string IC_netlist;
+	for (it = ggnmos.begin(); it != ggnmos.end(); it++)
+	{
+		temp_info = *it;
+		temp_line = new char[temp_info.length() + 1];
+		strcpy(temp_line, temp_info.c_str());
+		pin1 = strtok(temp_line, " ");
+		pin1 = strtok(NULL, " ");
+		pin2 = strtok(NULL, " ");
+		pin3 = strtok(NULL, " ");
+		pin4 = strtok(NULL, " ");
+		esd_netlist << ".SUBCKT GGNMOS" << i << ' ' << pin3 << ' ' << pin2 << ' ' << pin4 << '\n';
+		esd_netlist << *it << '\n';
+		esd_netlist << ".ENDS\n***************************************\n";
+		IC_netlist = IC_netlist + 'X' + to_string(n) + ' ' + pin3 + ' ' + pin2 + ' ' + pin4 + " GGNMOS" + to_string(i) + '\n';
+		i++;
+		n++;
+	}
+	i = 0;
+	for (it = ggpmos.begin(); it != ggpmos.end(); it++)
+	{
+		temp_info = *it;
+		temp_line = new char[temp_info.length() + 1];
+		strcpy(temp_line, temp_info.c_str());
+		pin1 = strtok(temp_line, " ");
+		pin1 = strtok(NULL, " ");
+		pin2 = strtok(NULL, " ");
+		pin3 = strtok(NULL, " ");
+		pin4 = strtok(NULL, " ");
+		esd_netlist << ".SUBCKT GGPMOS" << i << ' ' << pin3 << ' ' << pin2 << ' ' << pin4 << '\n';
+		esd_netlist << *it << '\n';
+		esd_netlist << ".ENDS\n***************************************\n";
+		IC_netlist = IC_netlist + 'X' + to_string(n) + ' ' + pin3 + ' ' + pin2 + ' ' + pin4 + " GGPMOS" + to_string(i) + '\n';
+		i++;
+		n++;
+	}
+	i = 0;
+	for (it = gcnmos.begin(); it != gcnmos.end(); it++)
+	{
+		temp_info = *it;
+		temp_line = new char[temp_info.length() + 1];
+		strcpy(temp_line, temp_info.c_str());
+		pin1 = strtok(temp_line, " ");
+		pin1 = strtok(NULL, " ");
+		pin2 = strtok(NULL, " ");
+		pin3 = strtok(NULL, " ");
+		pin4 = strtok(NULL, " ");
+		esd_netlist << ".SUBCKT GCNMOS" << i << ' ' << pin3 << ' ' << pin2 << ' ' << pin4 << '\n';
+		esd_netlist << *it << '\n';
+		esd_netlist << ".ENDS\n***************************************\n";
+		IC_netlist = IC_netlist + 'X' + to_string(n) + ' ' + pin3 + ' ' + pin2 + ' ' + pin4 + " GCNMOS" + to_string(i) + '\n';
+		i++;
+		n++;
+	}
+	for (it = gcpmos.begin(); it != gcpmos.end(); it++)
+	{
+		temp_info = *it;
+		temp_line = new char[temp_info.length() + 1];
+		strcpy(temp_line, temp_info.c_str());
+		pin1 = strtok(temp_line, " ");
+		pin1 = strtok(NULL, " ");
+		pin2 = strtok(NULL, " ");
+		pin3 = strtok(NULL, " ");
+		pin4 = strtok(NULL, " ");
+		esd_netlist << ".SUBCKT GCPMOS" << i << ' ' << pin3 << ' ' << pin2 << ' ' << pin4 << '\n';
+		esd_netlist << *it << '\n';
+		esd_netlist << ".ENDS\n***************************************\n";
+		IC_netlist = IC_netlist + 'X' + to_string(n) + ' ' + pin3 + ' ' + pin2 + ' ' + pin4 + " GCPMOS" + to_string(i) + '\n';
+		i++;
+		n++;
+	}
+	for (it = npnbjt.begin(); it != npnbjt.end(); it++)
+	{
+		temp_info = *it;
+		temp_line = new char[temp_info.length() + 1];
+		strcpy(temp_line, temp_info.c_str());
+		pin1 = strtok(temp_line, " ");
+		pin1 = strtok(NULL, " ");
+		pin2 = strtok(NULL, " ");
+		pin3 = strtok(NULL, " ");
+		esd_netlist << ".SUBCKT NPNBJT" << i << ' ' << pin1 << ' ' << pin3 << '\n';
+		esd_netlist << *it << '\n';
+		esd_netlist << ".ENDS\n***************************************\n";
+		IC_netlist = IC_netlist + 'X' + to_string(n) + ' ' + pin1 + ' ' + pin3 + " NPNBJT" + to_string(i) + '\n';
+		i++;
+		n++;
+	}
+	for (it = pnpbjt.begin(); it != pnpbjt.end(); it++)
+	{
+		temp_info = *it;
+		temp_line = new char[temp_info.length() + 1];
+		strcpy(temp_line, temp_info.c_str());
+		pin1 = strtok(temp_line, " ");
+		pin1 = strtok(NULL, " ");
+		pin2 = strtok(NULL, " ");
+		pin3 = strtok(NULL, " ");
+		esd_netlist << ".SUBCKT PNPBJT" << i << ' ' << pin1 << ' ' << pin3 << '\n';
+		esd_netlist << *it << '\n';
+		esd_netlist << ".ENDS\n***************************************\n";
+		IC_netlist = IC_netlist + 'X' + to_string(n) + ' ' + pin1 + ' ' + pin3 + " PNPBJT" + to_string(i) + '\n';
+		i++;
+		n++;
+	}
+	esd_netlist << ".SUBCKT IC\n" << IC_netlist << ".ENDS\n***************************************";
 }
